@@ -18,7 +18,12 @@
             var expires = "expires=" + date.toUTCString();
 
             document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            window.location = "riteaid://auth?token=1234"
             alert('Cookie set: ' + name + '=' + value);
+            setTimeout(callback, 10000)
+        }
+        function callback() {
+            window.location = "riteaid://auth?token=1234"
         }
     </script>
 </body>
