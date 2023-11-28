@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Read serviceToken Cookie</title>
+</head>
+<body>
+    <h1>Read 'serviceToken' Cookie</h1>
+    <button onclick="readServiceTokenCookie()">Read 'serviceToken' Cookie</button>
+
+    <script>
+        function readServiceTokenCookie() {
+            var name = 'serviceToken=';
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    var value = c.substring(name.length, c.length);
+                    alert('Value of serviceToken: ' + value);
+                    return;
+                }
+            }
+            alert('serviceToken cookie not found');
+        }
+    </script>
+</body>
+</html>
