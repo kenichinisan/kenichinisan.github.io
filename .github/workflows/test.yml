@@ -1,0 +1,25 @@
+name: test
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-art:
+    name: generate artifacts
+    runs-on: ubutu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        
+      - name: create file
+        run: |
+          #!/bin/bash
+
+          touch test.txt
+      
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: test
+          paths: test.txt
+      
